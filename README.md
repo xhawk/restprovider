@@ -9,5 +9,5 @@ Api:
 
 Description:
 
-[*] Jersey
-[] Java -> Scala
+- [x] Jersey
+- [ ] Java -> Scala
