@@ -14,7 +14,7 @@ import java.util.List;
  * Agile Hedgehog
  * Change this file to scala
  */
-@Path("/articles")
+@Path("/articless")
 public class LiferayRestApi {
 
     @GET
