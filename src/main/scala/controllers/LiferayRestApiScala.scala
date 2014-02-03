@@ -1,11 +1,12 @@
 package controllers
 
 import com.liferay.portal.kernel.exception.SystemException
-import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
+import scala.util.parsing.json.{JSONObject, JSONArray}
+import utils.ComponentRegistry
 
 /**
  * Agile Hedgehog
@@ -18,12 +19,16 @@ class LiferayRestApiScala {
   @Produces(Array(MediaType.APPLICATION_JSON))
   def getArticles: String = {
     try {
-      val result = JournalArticleLocalServiceUtil.getArticles(10179, -1, -1)
-      "{'message': '" + result.size + "'}"
+      var result: List[JSONObject] = List()
+      for (article <- ComponentRegistry.articleService.getArticles) {
+        result ::= new JSONObject(article)
+      }
+
+      new JSONArray(result).toString()
     }
     catch {
       case e: SystemException =>
-        return "{'error': '"+ e.getMessage +"'}"
+        e.getMessage
     }
   }
 }
