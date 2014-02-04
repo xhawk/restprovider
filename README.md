@@ -11,5 +11,5 @@ Description:
 
 - [x] Jersey
 - [x] Java -> Scala
-- [ ] Remove Java code
+- [x] Remove Java code
 - [ ] Test Gradle and SBT for alternative build tool
