@@ -10,4 +10,6 @@ Api:
 Description:
 
 - [x] Jersey
-- [ ] Java -> Scala
+- [x] Java -> Scala
+- [ ] Remove Java code
+- [ ] Test Gradle and SBT for alternative build tool
